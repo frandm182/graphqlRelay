@@ -1,4 +1,12 @@
-const { GraphQLSchema, GraphQLObjectType, GraphQLString } = require('graphql');
+const {
+  GraphQLSchema,
+  GraphQLObjectType,
+  GraphQLString,
+  GraphQLInt,
+  GraphQLList
+} = require('graphql');
+
+const roll = () => Math.floor(6 * Math.random()) + 1;
 
 const queryType = new GraphQLObjectType({
   name: 'RootQuery',
@@ -6,6 +14,10 @@ const queryType = new GraphQLObjectType({
     hello: {
       type: GraphQLString,
       resolve: () => 'world'
+    },
+    diceRoll: {
+      type: new GraphQLList(GraphQLInt),
+      resolve: () => [roll(), roll()]
     }
   }
 });
