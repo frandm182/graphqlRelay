@@ -47,6 +47,24 @@ query SchemaDirectives {
     }
   }
 }
+## RootQuery ofTypes
+query TypeFields {
+  __schema {
+    queryType {
+      fields {
+        name
+        type {
+          kind
+          name,
+          ofType {
+            kind,
+            name
+          }
+        }
+      }
+    }
+  }
+}
 
 ## InstrospectionQuery
 query IntrospectionQuery {
