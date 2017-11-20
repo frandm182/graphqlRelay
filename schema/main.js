@@ -17,7 +17,20 @@ const queryType = new GraphQLObjectType({
     },
     diceRoll: {
       type: new GraphQLList(GraphQLInt),
-      resolve: () => [roll(), roll()]
+      args: {
+        count: {
+          type: GraphQLInt,
+          defaultValue: 2
+        }
+      },
+      resolve: (_, args) => {
+        const rolls = [];
+        for (let i = 0; i < args.count; i += 1) {
+          rolls.push(roll());
+        }
+
+        return rolls;
+      }
     }
   }
 });
