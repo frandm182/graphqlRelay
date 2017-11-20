@@ -1,0 +1,14 @@
+# Editors
+.idea
+.vscode
+
+# dependencies
+/build
+/node_modules
+/functions/node_modules
+/dist
+/public/secrets.js
+.project
+yarn-error.log
+package-lock.json
+yarn.lock

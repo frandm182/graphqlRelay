@@ -1,0 +1,94 @@
+{  
+   "extends":[  
+      "eslint-config-airbnb",
+      "eslint-config-prettier",
+      "eslint-config-prettier/react",
+      "plugin:jest/recommended"
+   ],
+   "plugins":[  
+      "react",
+      "prettier",
+      "jest"
+   ],
+   "parser": "babel-eslint",
+   "parserOptions":{  
+      "ecmaVersion":8,
+      "sourceType":"module",
+      "ecmaFeatures":{  
+         "experimentalObjectRestSpread":true,
+         "jsx":true
+      }
+   },
+   "rules":{
+     "jsx-a11y/anchor-is-valid": [ "error", {
+        "components": [ "Link" ],
+        "specialLink": [ "hrefLeft", "hrefRight" ],
+        "aspects": [ "noHref", "preferButton" ]
+      }],
+      "no-console":[  
+         "warn",
+         {  
+            "allow":[  
+               "warn",
+               "error",
+               "log"
+            ]
+         }
+      ],
+      "linebreak-style":"off",
+      "indent":0,
+      // eslint vs prettier. Round 1! Fight! 
+    "react/jsx-filename-extension":[  
+         1,
+         {  
+            "extensions":[  
+               ".js",
+               ".jsx"
+            ]
+         }
+      ],
+      "import/no-extraneous-dependencies":[  
+         "error",
+         {  
+            "devDependencies":[  
+               "**/stories.js",
+               "**/*.test.js",
+               "src/server/index.js"
+            ]
+         }
+      ],
+      "click-events-have-key-events":0,
+      "react/require-default-props":0,
+      "react/prefer-stateless-function":0,
+      "jest/no-disabled-tests":"error",
+      "jest/no-focused-tests":"error",
+      "jest/no-identical-title":"error",
+      "jest/valid-expect":"error",
+      "react/no-find-dom-node":0,
+      "prettier/prettier":[  
+         "error",
+         {  
+            // Number of spaces it should use per tab 
+            "tabWidth":2,
+            "singleQuote":true,
+            "trailingComma":"none",
+            // If true, puts the `>` of a multi-line jsx element at the end of 
+            // the last line instead of being alone on the next line 
+          "jsxBracketSameLine":false
+         }
+      ],
+      "jsx-a11y/no-noninteractive-element-interactions": [
+        "error",
+        {
+          "handlers": [
+            "onClick",
+            "onMouseDown",
+            "onMouseUp",
+            "onKeyPress",
+            "onKeyDown",
+            "onKeyUp"
+          ]
+        }
+      ]
+   }
+}
